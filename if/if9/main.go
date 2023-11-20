@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	var a, b int
+	var a, b float64
 	fmt.Scan(&a, &b)
 	/// 3 2
 	if (a > b) {
