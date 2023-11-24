@@ -7,11 +7,11 @@ import (
 
 func main() {
 	var n int
-	var m int
+	// var m int
 	fmt.Scan(&n)
 	// k := 1
 	a := make([]int, n+3)
-	b := make([]int, n)
+	b := make([]int, n + 1)
 	// c := make([]int, n)
 	
 	for i := 0; i < n; i++ {
@@ -25,18 +25,18 @@ func main() {
 	sort.Ints(b)
 	for i := 0; i < n; i++ {
 
-			if ( b[i] > 0 ){
-				m = b[i]
+			if ( b[i] < b[n] && b[i] != 0 ){
+				fmt.Printf("%v ", b[i])
+			}else{
+				fmt.Println(0)
 				break
 			}
-			break
 
 	}
 	
-	fmt.Println(b)
 	
 	// fmt.Println(c)
 	
-	fmt.Println(m)
+	// fmt.Println(m)
 	
 }
