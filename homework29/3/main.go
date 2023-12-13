@@ -11,13 +11,11 @@ func main() {
 		fmt.Scan(&a[i])
 	}
 
-	for i := 0; i < len(a); i+= m {
-		b := i + m
-		if b > len(a) {
-			b = len(a) 
+	for i := 0; i < len(a); i++ {
+		fmt.Print(a[i], " ")
+		if (i+1)%m == 0 {
+			fmt.Print("\n")
 		}
-		fmt.Println(a[i:b])
 	}
 
-	
 }
