@@ -29,13 +29,6 @@ func (s *Service) GetCodeByUsername() {
 		return
 	}
 
-	err = s.repo.DeactivateByCode(getCode)
-
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-
 	fmt.Println("Вот ваш код: ", getCode)
 
 

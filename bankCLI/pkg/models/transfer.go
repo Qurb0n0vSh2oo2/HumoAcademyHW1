@@ -1,7 +1,7 @@
 package models
 
 type Transfer struct {
-	Sender    *Clients
-	Recipient *Clients
+	Sender    *Account
+	Recipient *Account
 	Amount    float64
 }

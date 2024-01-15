@@ -1,19 +1,21 @@
 package main
 
 import (
-	"bankCLI\pkg\"
+	"bankCLI/pkg/database"
+	"bankCLI/pkg/repository"
+	"bankCLI/pkg/service"
 	"fmt"
-	"time"
 )
 
-// Создание клиента, и его счет
-// Пополнить счет клиента
-// Посмотреть баланс клиента
-// Снять деньги с баланса
-// Ошибка недостаточно баланса
-
 func main() {
-	pkg.FillCities()
+	db := database.NewDatabase(10.0)
+
+	repo := repository.NewRepository(db)
+
+	svc := service.NewService(repo)
+
+	svc.FillCities()
+
 	for {
 		var choice int
 
@@ -22,27 +24,23 @@ func main() {
 		fmt.Println("3. Посмотреть баланс клиента")
 		fmt.Println("4. Снять деньги с баланса")
 		fmt.Println("5. Перевод денег")
-		fmt.Println("6. Получить прибыль банка")
-		fmt.Println("7. Выйти")
+		fmt.Println("6. Выйти")
 
 		fmt.Scan(&choice)
 
 		switch choice {
 		case 1:
-			pkg.RegisterClient()
+			svc.RegisterClient()
 		case 2:
-			pkg.TopUpClientsAccount()
+			svc.TopUpClientsAccount()
 		case 3:
-			pkg.ShowClientsAccount()
+			svc.ShowClientsAccount()
 		case 4:
-			pkg.WithdrawClientsAccount()
+			svc.WithdrawClientsAccount()
 		case 5:
-			pkg.TransferMoney()
+			svc.TransferMoney()
 		case 6:
-			pkg.ShowProfit()
-		case 7:
 			return
 		}
-		time.Sleep(2 * time.Second)
 	}
 }
